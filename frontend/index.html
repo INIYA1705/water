@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart House Water Consumption</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Smart House Water Consumption</h1>
+      <p>IoT-based monitoring and analysis — 1 household</p>
+    </div>
+    <button id="syncBtn">Sync from ThingSpeak</button>
+  </header>
+
+  <section class="status-bar" id="qualityBar">Loading quality status...</section>
+
+  <section class="cards">
+    <article class="card">
+      <span class="label">Total Consumption</span>
+      <span class="value" id="totalConsumption">—</span>
+      <span class="unit">liters</span>
+    </article>
+    <article class="card">
+      <span class="label">Current Flow Rate</span>
+      <span class="value" id="flowRate">—</span>
+      <span class="unit">L/min</span>
+    </article>
+    <article class="card">
+      <span class="label">Water Pressure</span>
+      <span class="value" id="pressure">—</span>
+      <span class="unit">bar</span>
+    </article>
+    <article class="card">
+      <span class="label">Estimated Cost</span>
+      <span class="value" id="cost">—</span>
+      <span class="unit">INR</span>
+    </article>
+    <article class="card">
+      <span class="label">pH Level</span>
+      <span class="value" id="ph">—</span>
+      <span class="unit">pH</span>
+    </article>
+    <article class="card">
+      <span class="label">Turbidity</span>
+      <span class="value" id="turbidity">—</span>
+      <span class="unit">NTU</span>
+    </article>
+  </section>
+
+  <section class="charts">
+    <article class="chart-box">
+      <h2>Water Consumption Over Time</h2>
+      <canvas id="consumptionChart"></canvas>
+    </article>
+    <article class="chart-box">
+      <h2>Flow Rate Over Time</h2>
+      <canvas id="flowChart"></canvas>
+    </article>
+    <article class="chart-box">
+      <h2>Peak Usage by Hour</h2>
+      <canvas id="peakChart"></canvas>
+    </article>
+    <article class="chart-box">
+      <h2>Water Quality (pH & Turbidity)</h2>
+      <canvas id="qualityChart"></canvas>
+    </article>
+  </section>
+
+  <section class="alerts-section">
+    <h2>Alerts</h2>
+    <ul id="alertsList"></ul>
+  </section>
+
+  <section class="roi-section">
+    <h2>ROI Estimate (1 House)</h2>
+    <div id="roiDetails" class="roi-grid"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
